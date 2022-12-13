@@ -1,0 +1,51 @@
+<div class="container">
+    <h1 class="text-center">Create Cab</h1>
+    <div class="row">
+        <div class="col-sm-6 offset-sm-3">
+            <form method="post">
+                <div class="col-xl-6">
+                    <div class="card-body p-md-5 text-black">
+                        <div class="row">
+                        </div>
+                        <div class="form-outline mb-3">
+                            <label class="form-label" for="form3Example8">Cab Name</label>
+                            <input type="text" id="cabname" name="cabname" class="form-control form-control-lg" required>
+                            <span id="err" style="color: red;display: block;"></span>
+                        </div>
+
+                        <div>
+							<div>
+                                <label class="form-label" for="form3Example8">Select cab type</label>
+                                <br>
+								<select id="cab" name="cabtype" class="form-control form-control-lg" onchange="change_cab(this.value)" class="frm-field" required="">
+									<option value="Mini">Mini</option>
+									<option value="sedan">Sedan</option>
+									<option value="elite">Elite</option>
+								</select><br>
+							</div>
+						</div>
+
+                        <div>
+                            <label>Select driver</label>
+                            <select class="drivername" name="drivername" id="drivername">
+                    {{#each driver}}
+                    <option value={{this.dataValues.fullName}}:{{this.dataValues.driver_id}}  >{{this.dataValues.fullName}}</option>
+                    {{/each}}
+                </select>
+							{{!-- <div>
+								<select id="driver" name="driver" class="form-control form-control-lg" onchange="change_cab(this.value)" class="frm-field" required="">
+									<option value="">Select driver</option>
+									<option value="Mini">Mini</option>
+									<option value="sedan">Sedan</option>
+									<option value="elite">Elite</option>
+								</select><br>
+							</div> --}}
+						</div>
+                        
+                         <div class="d-grid mt-4">
+                                <button class="btn btn-primary">Submit</button>
+                            </div>
+            </form>
+        </div>
+    </div>
+</div>

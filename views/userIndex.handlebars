@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <title>Document</title>
+</head>
+<body id = "cab" background="../static/images/admin.jpg">
+{{!-- <a href="/index" class="w3-button w3-black" style="margin-left: 25px;margin-top:15px;">Logout</a> --}}
+<a href="/index" class="btn btn-info btn-lg" style="margin-left:10px;margin-top:10px;background-color:navy">
+          <span class="glyphicon glyphicon-log-out"></span> Log out
+        </a>
+         <div class="row">
+    {{!-- <div class="col-sm-3"> --}}
+        {{!-- <h2 style="text-align:center;">Welcome to Your Profile</h2> --}}
+        
+        <div>
+            <a style="margin-left:45%;" href="./booking/{{data.id}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">BOOK CAB</a>
+             
+            <br><br>
+        </div>
+        {{!-- <div>
+            <a href = "./user-index">Click here to view your details</a>
+        </div> --}}
+    {{!-- </div> --}}
+    <h2 style="text-align:center;color:navy">Welcome {{data.fullName}}</h2>
+    <div style="width:90%; margin-left:50px;">
+<table class="table table-info">
+        <tr>
+            <th> Id </th>
+            <th> fullName </th>
+            <th> Address </th>
+            <th>Gender</th>
+            <th>State</th>
+            <th>City</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Action</th>
+            {{!-- <th>Edit</th>
+            <th>Delete</th> --}}
+
+        </tr>
+        <tr>
+
+            <td>{{data.id}}</td>
+            <td>{{data.fullName}}</td>
+            <td>{{data.address}}</td> 
+            <td>{{data.gender}}</td>
+            <td>{{data.state}}</td>
+            <td>{{data.city}}</td>
+            <td>{{data.phone}}</td>
+            <td>{{data.email}}</td>
+            <td>{{data.pass_word}}</td>
+            
+             <td>
+                <a href="/user-update/{{data.id}}">Edit</a>|
+                <a href="/delete/{{data.id}}" class="text-danger" onclick="return confirm('Are you sure you want to delete this')">Delete</a>
+             </td>
+            
+           
+        </tr>
+    </div>
+    </table>
+    <a style="margin-left:45%;" href="./view-bookings/{{data.id}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">VIEW BOOKINGS</a>
+    
+</div>
+
+<script>
+
+    
+</script>
+</body>
+</html>

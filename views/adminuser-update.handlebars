@@ -1,0 +1,76 @@
+<div class="container">
+    <h1 class="text-center">Update User</h1>
+    <div class="row">
+        <div class="col-sm-6 offset-sm-3">
+            <form name="updateform" method="post">
+                <h1>{{data.name}}</h1>
+                <div class="form-outline mb-3">
+                    <label class="form-label" for="form3Example8">Full Name</label>
+                    <input type="text" id="name" name="fullName" class="form-control form-control-lg"
+                        value="{{data.fullName}}"></input>
+                    <span id="err" style="color: red;display: block;"></span>
+                </div>
+                <div class="form-outline mb-3">
+                    <label class="form-label" for="form3Example8">Address</label>
+                    <input type="text" id="form3Example8" name="address" class="form-control form-control-lg"
+                        value={{data.address}}></input>
+                </div>
+                <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
+
+                    <label class="mb-0 me-3" >Gender: </label>
+
+<input type = "text" value = {{data.gender}}>
+                    <div class="form-check form-check-inline mb-0 me-4">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
+                            value="female"></input>
+                        <label class="form-check-label" for="femaleGender">Female</label>
+                    </div>
+                    <div class="form-check form-check-inline mb-0 me-4">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
+                            value="male"></input>
+                        <label class="form-check-label" for="maleGender">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline mb-0">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
+                            value="other"></input>
+                        <label class="form-check-label" for="otherGender">Other</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <select class="select" name="state" value="data.state">
+                            {{!-- <option value="1">State</option> --}}
+                            <option  value="kerala" >Kerala</option>
+                            <option value="tamilnadu">Tamilandu</option>
+                            <option value="goa">Goa</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-outline mb-3">
+                    <label class="form-label" for="form3Example9">City</label>
+                    <input type="text" id="form3Example9" name="city" class="form-control form-control-lg"
+                        value={{data.city}}></input>
+                </div>
+                <div class="form-outline mb-3">
+                    <label class="form-label" for="form3Example99">Phone number</label>
+                    <input type="text" id="phone" name="phone" class="form-control form-control-lg"
+                        value={{data.phone}}></input>
+                    <span id="perr" style="color: red;display: block;"></span>
+                </div>
+                <div class="form-outline mb-3">
+                    <label class="form-label" for="form3Example99">Email ID</label>
+                    <input type="email" id="mail" name="email" class="form-control form-control-lg" value="{{data.email}}"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"></input>
+                    <span id="e_span"></span>
+                </div>
+                <div class="form-outline mb-3">
+                                            <label class="form-label" for="form3Example97">Password</label>
+                                            <input type="text" id="pass" name="pass" 
+                                                class="form-control form-control-lg" value={{data.pass_word}}></input>
+                <div class="d-grid mt-4">
+                    <button class="btn btn-primary" type="submit">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

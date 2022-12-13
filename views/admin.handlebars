@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Document</title>
+</head>
+<body background="../static/images/admin.jpg">
+    <a href="/index" class="w3-button w3-black" style="margin-left: 25px;margin-top:15px;">Logout</a>
+    <h1 align="center">ADMIN PAGE</h1>
+    <nav align="center">
+        <br>
+        <button onclick='datafetch();' style="font-size:24px">view users<i class="fa fa-user"></i></button>
+        <button onclick='bookingdatafetch();'style="font-size:24px">view bookings<i class="fa fa-user"></i></button></a>
+        <button onclick='driverdatafetch();'style="font-size:24px">view drivers <i class="fa fa-user"></i></button></a>
+        <button onclick='cabdatafetch();'style="font-size:24px">view cabs <i class="fa fa-user"></i></button></a>
+    </nav>
+    <div class="container">
+        <table id="tab" class="table table-striped mt-4">
+           
+        </table>
+        </body>
+        <script>
+            let table = document.getElementById("tab")
+            function datafetch() {
+                console.log("trigger")
+                let template = `
+             <a href="/usercreate"class="btn btn-primary">+ NEW USER</a>
+                <tr>
+            <th>Id</th>
+            <th>fullName</th>
+            <th>address</th>
+            <th>Gender</th>
+            <th>State</th>
+            <th>City</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Action</th>
+            
+        </tr>`
+                table.innerHTML = template;
+                fetch("/fetchData").then((data) => data.json()).then((promised) => {
+                    console.log("line")
+                    console.log(promised)
+                    promised.data.forEach((it) => {
+                        template = `
+            <tr>
+                <td>${it.id}</td>
+                <td>${it.fullName}</td>
+                <td>${it.address}</td>
+                <td>${it.gender}</td>
+                <td>${it.state}</td>
+                <td>${it.city}</td> 
+                <td>${it.phone}</td>
+                <td>${it.email}</td>
+                <td><a href="/adminuser-update/${it.id}">Edit</a> |
+                <a href="/userdelete/${it.id}" class="text-danger" onclick="return confirm('Are you sure you want to delete this')">Delete</a>
+            </tr>`
+                table.innerHTML += template;
+                    })
+                })
+            }
+
+
+             {{!-- let table = document.getElementById("tab1") --}}
+            function driverdatafetch() {
+                table.innerHTML = "";
+                let template = `
+             <a href="/drivercreate"class="btn btn-primary">+ NEW DRIVER</a>
+                <tr>
+            <th>Id</th>
+            <th>fullName</th>
+            <th>address</th>
+            <th>Gender</th>
+            <th>State</th>
+            <th>City</th>
+            <th>Phone</th>
+            <th>Aadhar</th>
+            <th>License number</th>
+            <th>Email</th>
+            <th>Action</th>
+            
+        </tr>`
+                table.innerHTML = template;
+                fetch("/fetchdriverData").then((data) => data.json()).then((promised) => {
+                    console.log("line")
+                    console.log(promised)
+                    promised.data.forEach((it) => {
+                        template = `
+            <tr>
+                <td>${it.driver_id}</td>
+                <td>${it.fullName}</td>
+                <td>${it.address}</td>
+                <td>${it.gender}</td>
+                <td>${it.state}</td>
+                <td>${it.city}</td> 
+                <td>${it.phone}</td>
+                <td>${it.aadhar}</td>
+                <td>${it.license_num}</td>
+                <td>${it.email}</td>
+                <td><a href="/admindriver-update/${it.driver_id}">Edit</a> |
+                <a href="/driverdelete/${it.id}" class="text-danger" onclick="return confirm('Are you sure you want to delete this')">Delete</a></td>
+            </tr>`
+                table.innerHTML += template;
+                    })
+                })
+           } 
+
+
+            function bookingdatafetch() {
+                table.innerHTML = "";
+                let template = `
+             <a href="/bookingcreate"class="btn btn-primary">+ NEW BOOKING</a>
+                <tr>
+            <th>Booking id</th>
+            <th>fullName</th>
+            <th>Email</th>
+            <th>Cab type</th>
+            <th>Booking date</th>
+            <th>Booking time</th>
+            <th>Pickup location</th>
+            <th>Dropoff location</th>
+            <th>passengers</th>
+            <th>direction</th>
+            <th>Action</th>
+            
+        </tr>`
+                table.innerHTML = template;
+                fetch("/fetchbookingData").then((data) => data.json()).then((promised) => {
+                    console.log("line")
+                    console.log(promised)
+                    promised.data.forEach((it) => {
+                        template = `
+            <tr>
+                <td>${it.booking_id}</td>
+                <td>${it.fullName}</td>
+                <td>${it.email}</td>
+                <td>${it.cab_type}</td>
+                <td>${it.booking_date}</td>
+                <td>${it.booking_time}</td> 
+                <td>${it.pickup_loc}</td>
+                <td>${it.dropoff_loc}</td>
+                <td>${it.Num_passenger}</td>
+                <td>${it.direction}</td>
+                <td><a href="/adminbooking-update/${it.user_id}">Edit</a> |
+                <a href="/bookingdelete/${it.user_id}" class="text-danger" onclick="return confirm('Are you sure you want to delete this')">Delete</a></td>
+            </tr>`
+                table.innerHTML += template;
+                    })
+                })
+           } 
+
+
+           function cabdatafetch() {
+                table.innerHTML = "";
+                let template = `
+             <a href="/admincabcreate"class="btn btn-primary">+ NEW CAB</a>
+                <tr>
+            <th>cab Id</th>
+            <th>Cab Name</th>
+            <th>Cab Type</th>
+            <th>Driver Id</th>
+            <th>Action</th>
+            
+        </tr>`
+                table.innerHTML = template;
+                fetch("/fetchcabData").then((data) => data.json()).then((promised) => {
+                    console.log("line")
+                    console.log(promised)
+                    promised.data.forEach((it) => {
+                        template = `
+            <tr>
+                <td>${it.cab_id}</td>
+                <td>${it.cab_name}</td>
+                <td>${it.cab_type}</td>
+                <td>${it.driver_id}</td>
+                <td><a href="/admincab-update/${it.driver_id}">Edit</a> |
+                <a href="/cabdelete/${it.id}" class="text-danger" onclick="return confirm('Are you sure you want to delete this')">Delete</a></td>
+            </tr>`
+                table.innerHTML += template;
+                    })
+                })
+           } 
+
+        </script>
+
+</html>

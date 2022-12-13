@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="css/sample.css" type="text/css">
+  <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css"> -->
+
+    <title>Document</title>
+    <style>
+        label {
+            color: black;
+        }
+
+        /* #regform input:invalid {
+      border-color: red;
+    } */
+    </style>
+    <div class="topdiv">
+        <nav>
+
+        </nav>
+
+    </div>
+</head>
+
+<body>
+    <form name="regform" id="regform"  method="POST">
+
+        <section class="h-80 bg-" style="background-color: rgb(14, 14, 107);">
+            {{!-- <a href="login.html" class="btn btn-success btn-lg" style="color: white;">Home</a> --}}
+            <div class="container py-4 h-70 ">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col">
+                        <div class="card card-registration my-4">
+                            <div class="row g-0">
+                                <div class="col-xl-6 d-none d-xl-block">
+                                    <img src="../static/images/cab3.jpg" alt="Sample photo" class="img-fluid"
+                                        style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem; height: 70%; margin-top: 5%;" />
+                                </div>
+                                <div class="col-xl-6">
+                                    <div class="card-body p-md-5 text-black">
+                                        <h3 class="mb-3 text-uppercase">Customer registration form</h3>
+
+                                        <div class="row">
+                                        </div>
+
+                                        <div class="form-outline mb-3">
+                                            <label class="form-label" for="form3Example8">Full Name</label>
+                                            <input type="text" id="name" name="fullName" class="form-control form-control-lg" required>
+                                            <span id="err" style="color: red;display: block;"></span>
+                                        </div>
+
+
+                                        <div class="form-outline mb-3">
+                                            <label class="form-label" for="form3Example8">Address</label>
+                                            <input type="text" id="form3Example8" name="address"
+                                                class="form-control form-control-lg" required />
+                                        </div>
+
+                                        <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
+
+                                            <h6 class="mb-0 me-3">Gender: </h6>
+
+                                            <div class="form-check form-check-inline mb-0 me-4">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                                    id="femaleGender" value="female" />
+                                                <label class="form-check-label" for="femaleGender">Female</label>
+                                            </div>
+
+                                            <div class="form-check form-check-inline mb-0 me-4">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                                    id="maleGender" value="male" />
+                                                <label class="form-check-label" for="maleGender">Male</label>
+                                            </div>
+
+                                            <div class="form-check form-check-inline mb-0">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                                    id="otherGender" value="option3" />
+                                                <label class="form-check-label" for="otherGender">Other</label>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+
+                                                <select class="select" name="state" required>
+                                                    <option value="1">State</option>
+                                                    <option value="kerala">Kerala</option>
+                                                    <option value="tamilnadu">Tamilnandu</option>
+                                                    <option value="goa">Goa</option>
+                                                </select>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="form-outline mb-3">
+                                            <label class="form-label" for="form3Example9">City</label>
+                                            <input type="text" id="form3Example9" name="city"
+                                                class="form-control form-control-lg" required />
+                                        </div>
+
+                                       
+                                        <div class="form-outline mb-3">
+                                            <label class="form-label" for="form3Example99">Phone number</label>
+                                            <input type="text" id="phone" name="phone"
+                                                class="form-control form-control-lg" required>
+                                            <span id="perr" style="color: red;display: block;"></span>
+
+                                        </div>
+
+
+                                        <div class="form-outline mb-3">
+                                            <label class="form-label" for="form3Example99">Email ID</label>
+                                            <input type="email" id="mail" name="email"
+                                                class="form-control form-control-lg"
+                                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+                                            <span id="e_span"></span>
+
+                                        </div>
+
+                                        <div class="form-outline mb-3">
+                                            <label class="form-label" for="form3Example97">Password</label>
+                                            <input type="password" id="pass" name="pass"
+                                                class="form-control form-control-lg">
+
+
+                                            <input type="checkbox" onClick="myFunction()">Show Password
+                                            <span id="message" style="color:red"> </span>
+                                            <br>
+                                            <br>
+                                            <div class="d-flex justify-content-end pt-3">
+                                                <button type="button" class="btn btn-light btn-lg"
+                                                    onclick="reset()">Reset all</button>
+                                                <button type="submit" class="btn btn-primary btn-lg ms-2"
+                                                    id="btn">Submit form</button>
+                                                    
+                                            </div>
+                                        </div>
+                                    </div>
+                                     {{#if message}}
+                                    <p class="text-danger">{{message}}</p>
+                                    {{/if}}
+                                   
+    </form>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+    <script>
+        function myFunction() {
+            var email = document.forms['regform']['mail'];
+            var password = document.forms['regform']['pass'];
+            var passw = document.forms['regform']['passw'];
+
+            var btn = document.getElementById('btn');
+
+            if (password.type === "password") {
+                password.type = "text";
+            } else {
+                password.type = "password";
+            }
+        }
+
+        function validate(e) {
+            e.preventDefault();
+            var regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+            var name = document.getElementById('name').value;
+            if (!regName.test(name)) {
+                document.getElementById('err').innerText = "Invalid Name";
+            }
+            else {
+                // alert('Valid name given.');
+                document.getElementById('err').innerText = "";
+                // alert("succesfull")
+            }
+
+            var pw = document.getElementById("pass").value;
+            //check empty password field  
+            if (pw == "") {
+                document.getElementById("message").innerHTML = "**Fill the password please!";
+                return false;
+            }
+
+            if (pw.length < 8) {
+                document.getElementById("message").innerHTML = "**Password length must be atleast 8 characters";
+                return false;
+            }
+
+            if (pw.length > 15) {
+                document.getElementById("message").innerHTML = "**Password length must not exceed 15 characters";
+                return false;
+            } else {
+                document.getElementById('message').innerText = "";
+                location.replace("index.html")
+            }
+        }
+        var email = document.forms['regform']['mail'];
+        var btn = document.getElementById('btn');
+
+
+
+        document.querySelectorAll('#regform input').forEach(e => {
+            e.addEventListener('keyup', function (event) {
+                var isValid = true;
+                if (!email.validity.valid) {
+                    isValid = false;
+                }
+
+                if (!isValid) {
+                    btn.setAttribute('disabled', true)
+                }
+                else {
+                    btn.removeAttribute('disabled');
+                    success();
+                }
+            })
+        });
+
+        function reset() {
+            document.getElementById("regform").reset();
+        }
+
+       // function success() {
+        //    alert("You cab is booked");
+        //}
+    </script>
+
+</html>
